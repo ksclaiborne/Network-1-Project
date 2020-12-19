@@ -2,7 +2,8 @@ Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
-Update the path with the name of your diagram](https://github.com/ksclaiborne/Network-1-Project/blob/main/Diagrams/Week%2013%20Network%20Diagram.png)
+Images/Week 13 Network Diagram.png
+https://github.com/ksclaiborne/Network-1-Project/blob/main/Diagrams/Week%2013%20Network%20Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _yml____ file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -102,12 +103,12 @@ Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly __efficient___, in addition to restricting __access___ to the network.
+Load balancing ensures that the application will be highly __protected___, in addition to restricting __network traffic___ to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 Load Balancers protect against DDoS (distributed denial-of-service).
 Jump boxes distribute the network traffic so the webservers do not become overcrowded.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _data____ and system ___logs__.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _traffic____ and system ___logs__.
 - _TODO: What does Filebeat watch for?_monitors logs files, collects logs events and frowrds to Logstash for indexing.
 - _TODO: What does Metricbeat record?_collects metrics from the server.
 
@@ -121,7 +122,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Web-1 DVWA          	| Web server             	| 10.0.0.5     	| Linux            	|
 | Web-2 DVWA          	| Web server             	| 10.0.0.6     	| Linux            	|
 | Web-3 DVWA          	| Web server             	| 10.0.0.8     	| Linux            	|
-| Elk Server          	| log files and metrics  	| 10.1.0.4  	| Linux            	|
+| Elk Server          	| monitoring logs/metrics	| 10.1.0.4   	  | Linux            	|
 
 
 
@@ -141,15 +142,15 @@ A summary of the access policies in place can be found in the table below.
 | Name       | Publicly Accessible | Allowed IP Addresses       |
 |------------|---------------------|----------------------------|
 | Jump Box   | Yes                 | 10.0.0.5 10.0.0.6 10.0.0.8 |
-| Web-1 DVWA | No                  |                            |
-| Web-s DVWA | No                  |                            |
-| Web-3 DVWA | No                  |                            |
+| Web-1 DVWA | No                  | 23.101.197.196             |
+| Web-2 DVWA | No                  | 23.101.197.196             |
+| Web-3 DVWA | No                  | 23.101.197.196             |
 | Elk Server | No                  | 24.171.91.145              |
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_To automate and disperse updates and patches and scripts
+- _TODO: What is the main advantage of automating configuration with Ansible?_To automate application and patches updates.
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - ...install docker io
@@ -183,8 +184,8 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml_____ file to _/etc/filebeat/filebeat.yml____.
-- Update the __hosts___ file to include...IP Address of Elk server
-- Run the playbook, and navigate to _40.211.29.10:5601/app/kibana___ to check that the installation worked as expected.
+- Update the __hosts___ file to include...Elk server
+- Run the playbook, and navigate to _40.211.29.10:5601/app/kibana_(Elk server public IP)__ to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_filebeat-playbook.yml and copy to /etc/filebeat/filebeat.yml
@@ -192,4 +193,6 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running? http://40.211.29.10:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+curl to download playbook
+nano ansible-config.yml
 
