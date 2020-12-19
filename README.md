@@ -103,8 +103,8 @@ Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly __protected___, in addition to restricting __network traffic___ to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly __available___, in addition to restricting __network traffic___ to the network.
+- _TODO: What aspect of security do load balancers protect? Availibility What is the advantage of a jump box?_
 Load Balancers protect against DDoS (distributed denial-of-service).
 Jump boxes distribute the network traffic so the webservers do not become overcrowded.
 
