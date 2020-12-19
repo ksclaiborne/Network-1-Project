@@ -9,7 +9,7 @@ The files in this repository were used to configure the network depicted below.
 Images/Week 13 Network Diagram.png
 https://github.com/ksclaiborne/Network-1-Project/blob/main/Diagrams/Week%2013%20Network%20Diagram.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _yml____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _YAML____ file may be used to install only certain pieces of it, such as Filebeat.
 
   - _TODO: Enter the playbook file._
 
@@ -107,12 +107,12 @@ Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly __protected___, in addition to restricting __network traffic___ to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly __available___, in addition to restricting __network traffic___ to the network.
+- _TODO: What aspect of security do load balancers protect? Availibility What is the advantage of a jump box?_
 Load Balancers protect against DDoS (distributed denial-of-service).
 Jump boxes distribute the network traffic so the webservers do not become overcrowded.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _traffic____ and system ___logs__.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the __files_ and system ___logs__.
 - _TODO: What does Filebeat watch for?_monitors logs files, collects logs events and frowrds to Logstash for indexing.
 - _TODO: What does Metricbeat record?_collects metrics from the server.
 
@@ -154,7 +154,7 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_To automate application and patches updates.
+- _TODO: What is the main advantage of automating configuration with Ansible?_Ansible improves teh scalability and reliability and consistency of the environment and decreases human error.
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - ...install docker io
@@ -189,11 +189,18 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml_____ file to _/etc/filebeat/filebeat.yml____.
 - Update the __hosts___ file to include...Elk server public IP
+[webservers]
+10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+10.0.0.8 ansible_python_interpreter=/usr/bin/python3
+
+[elkservers]
+10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 - Run the playbook, and navigate to _40.211.29.10:5601/app/kibana_(Elk server public IP)__ to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_filebeat-playbook.yml and copy to /etc/filebeat/filebeat.yml
-- _Which file do you update to make Ansible run the playbook on a specific machine? My-playbook.yml on jumpbox with ansible. How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- _Which file do you update to make Ansible run the playbook on a specific machine? hosts file. How do I specify which machine to install the ELK server on versus which to install Filebeat on?_by identifying the hosts as web or Elk in the playbook.
 - _Which URL do you navigate to in order to check that the ELK server is running? http://40.211.29.10:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
