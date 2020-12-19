@@ -2,7 +2,7 @@ Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
-Update the path with the name of your diagram](Images/diagram_filename.png)
+Update the path with the name of your diagram](Images/diagram_Week 13 Network Diagram.png)
 /Network-1-Project/Diagrams/Week 13 Network Diagram.png
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _yml____ file may be used to install only certain pieces of it, such as Filebeat.
@@ -134,7 +134,7 @@ The machines on the internal network are not exposed to the public Internet.
 Only the _load balancer____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - _TODO: Add whitelisted IP addresses_24.171.91.145
 
-Machines within the network can only be accessed by _____.
+Machines within the network can only be accessed by load balancer_____.
 - _TODO: Which machine did you allow to access your ELK VM? Local machine. What was its IP address?_24.171.91.145
 
 A summary of the access policies in place can be found in the table below.
@@ -154,7 +154,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - _TODO: What is the main advantage of automating configuration with Ansible?_To automate and disperse updates and patches and scripts
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...install docker
+- ...install docker io
 - ...install python
 - ...install docker python module
 - ...Enable docker service
@@ -195,9 +195,3 @@ _TODO: Answer the following questions to fill in the blanks:_
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-Commands from start to finish
-Commands for PlayBook
-
-Commands to Update Config files
-
-Playbook commands
