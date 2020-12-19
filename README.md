@@ -16,7 +16,6 @@ This document contains the following details:
   - Beats in Use
   - Machines Being Monitored
 - How to Use the Ansible Build
-
 --
 - name: my first playbook
   hosts: webservers
